@@ -38,13 +38,17 @@ struct ColorСhangeView: View {
             }
         )
         
-//        let bindingEnteredValue = Binding(
-//            get: { self.enteredValue.red },
-//            set: {
-//                self.enteredValue.red = $0
-////                self.value.red = Double($0) ?? 0
-//            }
-//        )
+        let bindingEnteredValue = Binding(
+            get: {
+//                self.enteredValue.red
+                String(lround(self.value.red))
+                
+            },
+            set: {
+                self.enteredValue.red = $0
+//                self.value.red = Double($0) ?? 0
+            }
+        )
         
         VStack {
             RoundedRectangle(cornerRadius: 25.0)
@@ -66,7 +70,7 @@ struct ColorСhangeView: View {
                     .accentColor(.red)
 //                TextField("", text: $enteredValue.red)
 
-                TextField("Value", text: $enteredValue.red, onCommit: {
+                TextField("Value", text: bindingEnteredValue, onCommit: {
                     
                     if var enteredNumber = Double(enteredValue.red) {
                         
@@ -87,22 +91,6 @@ struct ColorСhangeView: View {
                         self.enteredValue.red = "0"
                         showAlert = true
                     }
-                    /*
-                    
-                    if var enteredValue = Double(enteredValue.red) {
-                        enteredValue = enteredValue > 255 ? 255 : enteredValue
-                        enteredValue = enteredValue < 0 ? 0 : enteredValue
-                        value.red = enteredValue
-                        self.enteredValue.red = String(lround(enteredValue))
-//                        showAlert = true
-                    } else {
-                        value.red = 0
-                        self.enteredValue.red = "0"
-                        showAlert = true
-                       
-                    }
-                    */
-                    //                    value.red = Double(enteredValue.red) ?? 0
                 })
                 
                 .alert(isPresented: $showAlert) {
