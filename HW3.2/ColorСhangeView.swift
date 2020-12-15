@@ -28,9 +28,6 @@ struct ColorСhangeView: View {
     }
 }
 
-
-
-
 struct ColorSliderAndLabels: View {
     @Binding var value: Double
     let accentColor: Color
@@ -46,13 +43,10 @@ struct ColorSliderAndLabels: View {
                     .accentColor(accentColor)
 
                 ColorTextField(sliderValue: $value)
-                
             }
     }
       
 }
-
-
 
 struct ColorView: View {
     let red: Double
@@ -67,16 +61,14 @@ struct ColorView: View {
                       green: green / 255,
                       blue: blue / 255)
             )
+            .shadow(radius: 15 )
             .overlay(RoundedRectangle(cornerRadius: 25.0)
                         .stroke(lineWidth: 5)
                         .foregroundColor(.white))
-            .shadow(radius: 15 )
             .frame(height: 180)
             .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
     }
 }
-
-
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {

@@ -31,26 +31,29 @@ struct ColorTextField: View {
     }
 }
 
-extension ColorTextField {
-    private var action: () {
-        if var enteredNumber = Double(enteredValue) {
-            
-            switch enteredNumber {
-            case ..<0 :
-                enteredNumber = 0
-                showAlert = true
-            case 256... :
-                enteredNumber = 255
-                showAlert = true
-            default: break
-            }
-            sliderValue = enteredNumber
-            self.enteredValue = String(lround(enteredNumber))
-            
-        } else {
-            sliderValue = 0
-            self.enteredValue = "0"
-            showAlert = true
-        }
-    }
-}
+
+ extension ColorTextField {
+    //Вот не нравится как получилось, но несмог придумать лучще...
+     private var action: () {
+         if var enteredNumber = Double(enteredValue) {
+             
+             switch enteredNumber {
+             case ..<0 :
+                 enteredNumber = 0
+                 showAlert = true
+             case 256... :
+                 enteredNumber = 255
+                 showAlert = true
+             default: break
+             }
+             sliderValue = enteredNumber
+             self.enteredValue = String(lround(enteredNumber))
+             
+         } else {
+             sliderValue = 0
+             self.enteredValue = "0"
+             showAlert = true
+         }
+     }
+ }
+ 
