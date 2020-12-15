@@ -16,20 +16,8 @@ struct ColorСhangeView: View {
     var body: some View {
         
         VStack {
-            RoundedRectangle(cornerRadius: 25.0)
-                
-                .foregroundColor(
-                    Color(.sRGB,
-                          red: value.red / 255,
-                          green: value.green / 255,
-                          blue: value.blue / 255)
-                )
-                .overlay(RoundedRectangle(cornerRadius: 25.0)
-                            .stroke(lineWidth: 5)
-                            .foregroundColor(.white))
-                
-                .frame(height: 180)
-            
+            ColorView(red: value.red, green: value.green, blue: value.blue)
+        
             ColorSliderAndLabels(value: $value.red, accentColor: .red)
             ColorSliderAndLabels(value: $value.green, accentColor: .green)
             ColorSliderAndLabels(value: $value.blue, accentColor: .blue)
@@ -51,7 +39,6 @@ struct ColorSliderAndLabels: View {
         
             HStack {
                 Text("\(lround(value))")
-                    
                     .frame(width: 40)
 
                 Slider(value: $value, in: 0...255, step: 1)
@@ -66,8 +53,34 @@ struct ColorSliderAndLabels: View {
 }
 
 
+
+struct ColorView: View {
+    let red: Double
+    let green: Double
+    let blue: Double
+    
+    var body: some View {
+        RoundedRectangle(cornerRadius: 25.0)
+            .foregroundColor(
+                Color(.sRGB,
+                      red: red / 255,
+                      green: green / 255,
+                      blue: blue / 255)
+            )
+            .overlay(RoundedRectangle(cornerRadius: 25.0)
+                        .stroke(lineWidth: 5)
+                        .foregroundColor(.white))
+            .shadow(radius: 15 )
+            .frame(height: 180)
+            .padding(EdgeInsets(top: 0, leading: 0, bottom: 20, trailing: 0))
+    }
+}
+
+
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ColorСhangeView()
+            .preferredColorScheme(.light)
     }
 }

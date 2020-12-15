@@ -16,22 +16,20 @@ struct ColorTextField: View {
     var body: some View {
         
         let bindingEnteredValue = Binding(
-           get: { String(lround(self.sliderValue)) },
-           set: { self.enteredValue = $0 }
-       )
+            get: { String(lround(self.sliderValue)) },
+            set: { self.enteredValue = $0 }
+        )
         
         TextField("Value", text: bindingEnteredValue, onCommit: { action })
-            
-        
-        .alert(isPresented: $showAlert) {
-            Alert(title: Text("Wrong Format!"), message: Text("Enter number of range 0 to 255"))
-        }
-        .textFieldStyle(RoundedBorderTextFieldStyle())
+            .multilineTextAlignment(.center)
+            .alert(isPresented: $showAlert) {
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+                return Alert(title: Text("Wrong number!"), message: Text("Enter a value between 0 and 255."))
+            }
+            .textFieldStyle(RoundedBorderTextFieldStyle())
             .frame(width: 60.0)
     }
 }
-
-
 
 extension ColorTextField {
     private var action: () {
