@@ -11,6 +11,7 @@
 		A50E88B6258768CB00048861 /* ColorСhangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A50E88B5258768CB00048861 /* ColorСhangeView.swift */; };
 		A50E88B8258768CE00048861 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50E88B7258768CE00048861 /* Assets.xcassets */; };
 		A50E88BB258768CE00048861 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A50E88BA258768CE00048861 /* Preview Assets.xcassets */; };
+		A597452B2588B23D003E5E4A /* ColorTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A597452A2588B23D003E5E4A /* ColorTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		A50E88B7258768CE00048861 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A50E88BA258768CE00048861 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A50E88BC258768CE00048861 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A597452A2588B23D003E5E4A /* ColorTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				A50E88B3258768CB00048861 /* HW3_2App.swift */,
 				A50E88B5258768CB00048861 /* ColorСhangeView.swift */,
+				A597452A2588B23D003E5E4A /* ColorTextField.swift */,
 				A50E88B7258768CE00048861 /* Assets.xcassets */,
 				A50E88BC258768CE00048861 /* Info.plist */,
 				A50E88B9258768CE00048861 /* Preview Content */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A597452B2588B23D003E5E4A /* ColorTextField.swift in Sources */,
 				A50E88B6258768CB00048861 /* ColorСhangeView.swift in Sources */,
 				A50E88B4258768CB00048861 /* HW3_2App.swift in Sources */,
 			);
