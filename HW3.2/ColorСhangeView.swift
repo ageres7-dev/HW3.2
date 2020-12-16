@@ -56,8 +56,7 @@ struct ColorView: View {
     var body: some View {
         RoundedRectangle(cornerRadius: 25.0)
             .foregroundColor(
-                Color(.sRGB,
-                      red: red / 255,
+                Color(red: red / 255,
                       green: green / 255,
                       blue: blue / 255)
             )
@@ -70,9 +69,22 @@ struct ColorView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+
+struct ColorСhangeView_Previews: PreviewProvider {
     static var previews: some View {
         ColorСhangeView()
             .preferredColorScheme(.light)
+    }
+}
+
+struct ColorSliderAndLabels_Previews: PreviewProvider {
+    static var previews: some View {
+        ColorSliderAndLabels(value: .constant(180), accentColor: .gray)
+    }
+}
+
+struct ColorView_Previews: PreviewProvider {
+    static var previews: some View {
+        ColorView(red: 23, green: 200, blue: 168)
     }
 }

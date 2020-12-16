@@ -33,6 +33,30 @@ struct ColorTextField: View {
 
 
  extension ColorTextField {
+    
+     private var action: () {
+        
+        guard var enteredNumber = Double(enteredValue) else {
+            sliderValue = 0
+            self.enteredValue = "0"
+            showAlert = true
+            return
+        }
+
+        if !(0...255).contains(enteredNumber) {
+            enteredNumber = enteredNumber > 255 ? 255 : 0
+            showAlert = true
+        }
+        
+        sliderValue = enteredNumber
+        self.enteredValue = String(lround(enteredNumber))
+        print("fuck")
+
+     }
+ }
+ 
+/*
+ extension ColorTextField {
     //Вот не нравится как получилось, но несмог придумать лучще...
      private var action: () {
          if var enteredNumber = Double(enteredValue) {
@@ -56,4 +80,13 @@ struct ColorTextField: View {
          }
      }
  }
- 
+ */
+
+
+
+
+struct ColorTextField_Previews: PreviewProvider {
+    static var previews: some View {
+        ColorTextField(sliderValue: .constant(0.8))
+    }
+}
